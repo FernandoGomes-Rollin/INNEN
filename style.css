@@ -1,34 +1,37 @@
-use*{
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
 
 body{
-  font-family:'Inter',sans-serif;
   background:#0a0a0a;
   color:white;
+  font-family:'Inter',sans-serif;
   overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
   position:fixed;
-  width:100%;
   top:0;
   left:0;
-  padding:25px 8%;
+  width:100%;
+  padding:28px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:100;
-  background:rgba(0,0,0,0.3);
-  backdrop-filter:blur(10px);
+  z-index:1000;
+
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(12px);
 }
 
 .logo{
-  font-size:1.5rem;
+  font-size:1.4rem;
   font-weight:700;
-  letter-spacing:4px;
+  letter-spacing:6px;
 }
 
 nav{
@@ -37,24 +40,24 @@ nav{
 }
 
 nav a{
-  color:red;
+  color:#d0d0d0;
   text-decoration:none;
-  font-size:0.95rem;
-  opacity:0.8;
   transition:0.3s;
 }
 
 nav a:hover{
-  opacity:1;
+  color:white;
 }
+
+/* HERO */
 
 .hero{
   position:relative;
-  width:100%;
-  height:100px;
+  height:100vh;
   display:flex;
   align-items:center;
   padding:0 8%;
+  overflow:hidden;
 }
 
 .hero-image{
@@ -62,8 +65,6 @@ nav a:hover{
   width:100%;
   height:100%;
   object-fit:cover;
-  top:0;
-  left:0;
 }
 
 .overlay{
@@ -72,169 +73,219 @@ nav a:hover{
   height:100%;
   background:linear-gradient(
     to right,
-    rgba(0,0,0,0.85),
-    rgba(0,0,0,0.4)
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.35)
   );
-  top:0;
-  left:0;
 }
 
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:600px;
+  max-width:650px;
 }
 
-.tag{
-  color:#c0c0c0;
-  letter-spacing:2px;
-  margin-bottom:20px;
+.hero-tag{
+  color:#b0b0b0;
+  letter-spacing:4px;
   font-size:0.8rem;
+  margin-bottom:20px;
 }
 
 .hero h1{
-  font-size:5rem;
+  font-size:5.5rem;
   line-height:0.95;
   margin-bottom:25px;
 }
 
-.description{
+.hero-description{
   color:#d0d0d0;
+  line-height:1.8;
   font-size:1.1rem;
-  line-height:1.7;
-  margin-bottom:35px;
-  max-width:500px;
+  margin-bottom:40px;
+  max-width:550px;
 }
 
-button{
-  padding:16px 32px;
-  border:none;
+.hero-button{
+  display:inline-block;
+  padding:16px 34px;
   background:white;
   color:black;
-  font-weight:600;
-  cursor:pointer;
-  transition:0.3s;
+  text-decoration:none;
   border-radius:50px;
+  font-weight:600;
+  transition:0.3s;
 }
 
-button:hover{
-  transform:translateY(-2px);
+.hero-button:hover{
+  transform:translateY(-3px);
 }
+
+/* FEATURES */
 
 .features{
   padding:120px 8%;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:30px;
-  background:#111;
+  background:#101010;
 }
 
 .feature{
-  padding:40px;
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;
-  background:#151515;
+  background:#171717;
+  padding:30px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,0.05);
 }
 
 .feature-image{
   width:100%;
   height:220px;
   object-fit:cover;
-  border-radius:14px;
+  border-radius:16px;
   margin-bottom:25px;
 }
 
 .feature h3{
+  font-size:1.3rem;
   margin-bottom:15px;
-  font-size:1.2rem;
 }
 
 .feature p{
-  color:#a0a0a0;
-  line-height:1.6;
+  color:#a5a5a5;
+  line-height:1.8;
 }
 
-@media(max-width:768px){
+/* SHOWCASE */
+
+.showcase{
+  padding:140px 8%;
+  background:#080808;
+}
+
+.showcase-top{
+  margin-bottom:70px;
+  max-width:750px;
+}
+
+.showcase-tag{
+  color:#777;
+  letter-spacing:4px;
+  font-size:0.75rem;
+  margin-bottom:18px;
+}
+
+.showcase-top h2{
+  font-size:4rem;
+  line-height:1.05;
+  color:white;
+}
+
+.showcase-layout{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:24px;
+}
+
+.showcase-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  background:#111;
+  min-height:420px;
+  grid-column:span 4;
+}
+
+.showcase-item.tall{
+  grid-column:span 5;
+  min-height:650px;
+}
+
+.showcase-item.wide{
+  grid-column:span 7;
+  min-height:650px;
+}
+
+.showcase-item img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.7s;
+}
+
+.showcase-item:hover img{
+  transform:scale(1.06);
+}
+
+.showcase-content{
+  position:absolute;
+  inset:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  padding:40px;
+
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,0.82),
+    rgba(0,0,0,0.15)
+  );
+}
+
+.showcase-content span{
+  color:#888;
+  font-size:0.85rem;
+  margin-bottom:12px;
+  letter-spacing:2px;
+}
+
+.showcase-content h3{
+  font-size:2rem;
+  margin-bottom:18px;
+}
+
+.showcase-content p{
+  color:#c5c5c5;
+  line-height:1.8;
+  max-width:450px;
+}
+
+/* FOOTER */
+
+footer{
+  padding:60px 8%;
+  border-top:1px solid rgba(255,255,255,0.06);
+  text-align:center;
+  color:#666;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
 
   nav{
     display:none;
   }
 
   .hero h1{
-    font-size:3rem;
+    font-size:3.5rem;
   }
 
-  .description{
-    font-size:1rem;
+  .showcase-layout{
+    grid-template-columns:1fr;
   }
 
-  transition:0.4s;
-  border:1px solid rgba(255,255,255,0.05);
-}
-<section class="showcase">
+  .showcase-item,
+  .showcase-item.tall,
+  .showcase-item.wide{
+    grid-column:auto;
+    min-height:420px;
+  }
 
-  <div class="showcase-top">
+  .showcase-top h2{
+    font-size:2.7rem;
+  }
 
-    <p class="showcase-tag">
-      AUTOMOTIVE CRAFTSMANSHIP
-    </p>
-
-    <h2>
-      Designed To Transform<br>
-      Every Interior Experience.
-    </h2>
-
-  </div>
-
-  <div class="showcase-layout">
-
-    <div class="showcase-item tall">
-
-      <img
-        src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?q=80&w=1400&auto=format&fit=crop"
-      >
-
-      <div class="showcase-content">
-        <span>01</span>
-
-        <h3>
-          Precision Stitching
-        </h3>
-
-        <p>
-          Hand-finished stitching focused on detail,
-          durability, and performance-inspired aesthetics.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="showcase-item">
-
-      <img
-        src="https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1400&auto=format&fit=crop"
-      >
-
-      <div class="showcase-content">
-        <span>02</span>
-
-        <h3>
-          Premium Materials
-        </h3>
-
-        <p>
-          Carefully selected textures and finishes
-          inspired by modern luxury interiors.
-        </p>
-      </div>
-
-    </div>
-
-    <div class="showcase-item wide">
-
-      <img
-        src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop"
-      >
-
-      <div class="showcase-content
 }
