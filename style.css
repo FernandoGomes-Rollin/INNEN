@@ -1,3 +1,6 @@
+html{
+  scroll-behavior:smooth;
+}
 *{
   margin:0;
   padding:0;
@@ -8,6 +11,7 @@ body{
   background:#0a0a0a;
   color:white;
   font-family:'Inter',sans-serif;
+letter-spacing:-0.5px;
   overflow-x:hidden;
 }
 
@@ -18,14 +22,16 @@ header{
   top:0;
   left:0;
   width:100%;
-  padding:28px 8%;
+  padding:22px 8%;
   display:flex;
   justify-content:space-between;
   align-items:center;
   z-index:1000;
 
-  background:rgba(0,0,0,0.35);
-  backdrop-filter:blur(12px);
+  background:rgba(10,10,10,0.55);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
@@ -67,10 +73,14 @@ nav a:hover{
 }
 
 .hero-image{
+  transition:1.5s;
   position:absolute;
   width:100%;
   height:100%;
   object-fit:cover;
+}
+.hero:hover .hero-image{
+  transform:scale(1.03);
 }
 
 .overlay{
@@ -161,7 +171,6 @@ nav a:hover{
   line-height:1.8;
 }
 
-/* SHOWCASE */
 
 .showcase {
   padding:140px 8%;
@@ -258,6 +267,25 @@ nav a:hover{
   max-width:450px;
 }
 
+.showcase{
+  position:relative;
+}
+
+.showcase::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:120px;
+
+  background:linear-gradient(
+    to bottom,
+    #101010,
+    transparent
+  );
+}
+
 /* FOOTER */
 
 footer{
@@ -294,4 +322,22 @@ footer{
     font-size:2.7rem;
   }
 
+  .showcase-item,
+.feature{
+  animation:fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
 }
