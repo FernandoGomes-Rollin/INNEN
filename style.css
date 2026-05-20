@@ -79,10 +79,6 @@ nav a:hover{
   height:100%;
   object-fit:cover;
 }
-.hero:hover .hero-image{
-  transform:scale(1.03);
-}
-
 .overlay{
   position:absolute;
   width:100%;
